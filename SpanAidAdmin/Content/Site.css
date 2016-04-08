@@ -1,0 +1,405 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+ul {
+    float: right;
+    margin-right: 260px;
+    margin-top: -80px;
+}
+
+li {
+    float: left;
+    color: white;
+    padding-right: 30px;
+    font-family: serif;
+}
+
+header {
+    background-color: #3D4451;
+    height: 80px;
+}
+
+h2 {
+    padding: 15px;
+    /*margin-left: 153px;*/
+    color: white;
+    font-size: 40px;
+}
+
+body {
+    margin: 0px;
+}
+
+.searchdiv {
+    background-color: #E8AD51;
+    height: 400px;
+    background-image: url("../images/frveg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.spacer3 {
+    height: 3px;
+}
+
+.spacer5 {
+    height: 5px;
+}
+
+.spacer10 {
+    height: 10px;
+}
+
+.spacer20 {
+    height: 20px;
+}
+
+.spacer25 {
+    height: 25px;
+}
+
+.spacer100 {
+    height: 100px;
+}
+
+.search {
+    position: absolute;
+    height: 300px;
+    width: 60%;
+    background-color: rgba(123, 121, 105, 0.81);
+    margin-left: 290px;
+    margin-top: 49px;
+    border-radius: 4px;
+}
+
+h1 {
+    margin-left: 65px;
+    font-family: cursive;
+    font-size: 35px;
+    padding-top: 29px;
+}
+
+.seconddiv {
+    background-color: rgba(83, 190, 154, 0.74);
+    height: 300px;
+    padding: 38px;
+}
+
+.thirddiv {
+    background-color: #0B0D0E;
+    height: 300px;
+    padding: 30px;
+}
+
+.fourthdiv {
+    background-color: rgba(114, 32, 106, 0.88);
+    height: 190px;
+    padding: 70px;
+}
+
+.fivthdiv {
+    background-color: rgba(23, 17, 10, 0.92);
+    height: 80px;
+    padding: 30px;
+}
+
+.sixdiv {
+    background-color: rgba(1, 2, 2, 0.91);
+    height: 300px;
+    padding: 30px;
+}
+
+input {
+    margin-left: 110px;
+    font-size: 17px;
+    border-radius: 6px;
+    height: 30px;
+    width: 31%;
+}
+
+.btnsearch {
+    margin-left: 409px;
+    border-color: orange;
+    border-radius: 6px;
+    height: 38px;
+    font-family: cursive;
+    color: white;
+    background-color: green;
+    width: 11%;
+    font-size: 17px;
+}
+
+.finddiv {
+    color: white;
+    font-size: 46px;
+    margin-left: 326px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: white;
+}
+
+.btnread {
+    border-color: white;
+    border-radius: 2px;
+    height: 44px;
+    width: 9%;
+    font-family: cursive;
+    color: white;
+    background-color: rgba(83, 190, 154, 0.74);
+    margin-left: 43%;
+    font-size: 17px;
+    border-radius: 6px;
+}
+
+.vegdiv {
+    height: 210px;
+    width: 333px;
+    background-color: #CEE6F4;
+    position: absolute;
+    margin-top: -47%;
+    margin-left: 150px;
+    background-image: url("../images/veg.jpg");
+    border: 3px solid white;
+}
+
+.fruitdiv {
+    height: 210px;
+    width: 333px;
+    background-color: #CEE6F4;
+    position: absolute;
+    margin-top: -32%;
+    margin-left: 150px;
+    background-image: url("../images/fruit.jpg");
+    border: 3px solid white;
+}
+
+.btnveg {
+    margin: 73px 0px 0px 87px;
+    height: 34px;
+    width: 47%;
+    font-family: cursive;
+    background-color: rgba(112, 123, 127, 0.34);
+    font-size: 14px;
+    color: white;
+    font-weight: 900;
+}
+
+.btnfruit {
+    margin: 73px 0px 0px 87px;
+    height: 34px;
+    width: 47%;
+    font-family: cursive;
+    background-color: rgba(112, 123, 127, 0.34);
+    font-size: 14px;
+    color: white;
+    font-weight: 900;
+}
+
+.seasondiv {
+    color: white;
+    font-size: 46px;
+    margin-left: 36%;
+}
+
+.btnseason {
+    margin-left: 56%;
+    border-color: white;
+    border-radius: 6px;
+    height: 47px;
+    font-family: cursive;
+    color: white;
+    background-color: #0B0D0E;
+    width: 17%;
+    font-size: 17px;
+}
+
+.localdiv {
+    color: white;
+    font-size: 46px;
+    margin-left: 24%;
+}
+
+.textdiv {
+    text-align: center;
+    font-family: monospace;
+}
+
+.seasontextdiv {
+    text-align: center;
+    margin-left: 527px;
+    font-family: monospace;
+}
+
+.srchdiv {
+    height: 270px;
+    width: 369px;
+    background-color: white;
+    position: absolute;
+    margin-top: -15%;
+    margin-left: 92px;
+    border-radius: 5px;
+}
+
+.findsellerdiv {
+    height: 270px;
+    width: 369px;
+    background-color: white;
+    position: absolute;
+    margin-top: -15%;
+    margin-left: 564px;
+    border-radius: 5px;
+}
+
+.purchase {
+    height: 270px;
+    width: 369px;
+    background-color: white;
+    position: absolute;
+    margin-left: 67%;
+    margin-top: -233px;
+    border-radius: 5px;
+}
+/*footer{
+    height: 30px;
+    background-color: #0C1026;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    font-size: 21px;
+    font-family: monospace;
+}*/
+.srch {
+    height: 120px;
+    width: 124px;
+    background-color: red;
+    position: absolute;
+    margin-top: -65%;
+    margin-left: 122px;
+    border-radius: 166px;
+}
+
+.seller {
+    height: 120px;
+    width: 124px;
+    background-color: green;
+    position: absolute;
+    margin-top: -65%;
+    margin-left: 122px;
+    border-radius: 166px;
+}
+
+.purch {
+    height: 120px;
+    width: 124px;
+    background-color: purple;
+    position: absolute;
+    margin-top: -65%;
+    margin-left: 122px;
+    border-radius: 166px;
+}
+
+.localfinddiv {
+    color: white;
+    font-size: 46px;
+    margin-left: 24%;
+    padding-top: 59px;
+}
+
+.btnstart {
+    margin-left: 37%;
+    border-color: white;
+    border-radius: 6px;
+    height: 47px;
+    font-family: cursive;
+    color: white;
+    background-color: rgba(1, 2, 2, 0.91);
+    width: 17%;
+    font-size: 17px;
+}
+
+.searchhead {
+    font-size: 38px;
+    text-align: center;
+    padding-top: 65px;
+    color: purple;
+}
+
+.searchcontent {
+    font-size: 21px;
+    text-align: center;
+    color: #293F59;
+    padding-top: 25px;
+}
+
+img {
+    width: 92px;
+    height: 91px;
+    align-content: center;
+    margin-left: 18px;
+    margin-top: 14px;
+}
+
+.imgveg {
+    height: 196px;
+    width: 96%;
+    margin-top: -101px;
+    margin-left: 6px;
+}
+
+a {
+    text-transform: none;
+    color: white;
+    font-family: initial;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+    a:hover {
+        border: 2px solid orange;
+        padding: 10px;
+    }
+
+.container {
+    max-width: 1371px;
+}
+
+/*body {
+    background-image: url('Images/sp1.jpg') !important;
+    background-repeat:initial !important;
+}*/
+
+.table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+    border-bottom-width: 2px;
+    font-family: initial;
+}
+
+.table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    border: 1px solid #dddddd;
+    /*font-size: smaller;*/
+    font-family: initial;
+}

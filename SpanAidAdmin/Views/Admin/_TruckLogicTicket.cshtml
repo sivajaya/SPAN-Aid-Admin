@@ -1,0 +1,136 @@
+﻿@model List<SpanAidAdmin.Models.TruckLogic>
+@{
+    ViewBag.Title = "List Truck Logic Ticket";
+}
+<div id="maindiv">
+    <h2 class="text-primary">Truck Logic Tickets</h2>
+    <h4 id="delete" class="text-danger"></h4>
+    <div>
+        <table class="table table-bordered table-striped" id="TLTicketList">
+            <thead style="background: rgba(122, 119, 119, 0.48);" >
+                <tr>
+                    <th>User Name</th>
+
+                    <th>Email Address</th>
+
+                    <th>Ticket Number</th>
+
+                    <th>Module Name</th>
+
+                    <th>Ticket Description</th>
+
+                    <th>Ticket Status </th>
+
+                    <th>Priority</th>
+
+                    <th>Ticket Type</th>
+
+                    <th>Ticket Create Date</th>
+
+                    <th>Ticket Update Date</th>
+
+                    <th>Change Status</th>
+
+                    <th> Contact</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.TLUserName</td>
+
+                            <td>@item.TlEmailAddress</td>
+
+                            <td>@item.TLTicketNumber</td>
+
+                            <td>@item.TLModuleName</td>
+
+                            <td>@item.TLTicketDescription</td>
+
+                            <td>@item.TLTicketStatus</td>
+
+                            <td>@item.TLPriority</td>
+
+                            <td>@item.TLTicketType</td>
+
+                            <td>
+                                @{
+                        string Date = item.TLTicketCreateDate.ToString();
+                        string date = Date.Substring(0, 9);
+                        @Html.Raw(date);
+                                }
+                            <td>
+                                @{
+                                       string updtaeDate = item.TLTicketUpdateDate.ToString();
+                                       string updtaedate = updtaeDate.Substring(0, 9);
+                                    @Html.Raw(updtaedate);
+                                }
+                            </td>
+
+                            <td style="width: 177px;">
+                                @if (item.TLTicketStatus.ToLower() == "assigned")
+                                {
+                                    <button class="btn btn-default btn-xs" onclick="Status(@item.TLTicketId,'New')"> New</button>
+                                    <button class="btn btn-primary btn-xs" onclick="Status(@item.TLTicketId,'InProgress')"> InProgress</button>
+                                    <button class="btn btn-success btn-xs" onclick="Status(@item.TLTicketId,'Resolved')">Resolved</button>
+                                }
+                                else if (item.TLTicketStatus.ToLower() == "inprogress")
+                                {
+                                    <button class="btn btn-default btn-xs" onclick="Status(@item.TLTicketId,'Assigned')"> Assigned</button>
+                                    <button class="btn btn-success btn-xs" onclick="Status(@item.TLTicketId,'Resolved')"> Resolved</button>
+                                    <button class="btn btn-danger btn-xs" onclick="Status(@item.TLTicketId,'Closed')"> Closed</button>
+                                }
+                                else if (item.TLTicketStatus.ToLower() == "resolved")
+                                {
+                                    <button class="btn btn-default btn-xs" onclick="Status(@item.TLTicketId,'Assigned')"> Assigned</button>
+                                    <button class="btn btn-primary btn-xs" onclick="Status(@item.TLTicketId,'InProgress')">InProgress</button>
+                                    <button class="btn btn-danger btn-xs" onclick="Status(@item.TLTicketId,'Closed')"> Closed</button>
+                                }
+                                else if (item.TLTicketStatus.ToLower() == "new")
+                                {
+                                    <button class="btn btn-default btn-xs" onclick="Status(@item.TLTicketId,'New')"> New</button>
+                                    <button class="btn btn-primary btn-xs" onclick="Status(@item.TLTicketId,'InProgress')"> InProgress</button>
+                                    <button class="btn btn-default btn-xs" onclick="Status(@item.TLTicketId,'Resolved')"> Resolved</button>
+                                }
+                                else
+                                {
+                                    <span>Ticket Closed</span>
+                                }
+                            </td>
+                            <td><i class="fa fa-comment"></i> &nbsp;<i class="fa fa-envelope-o"></i></td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(function () {
+        $("#TLTicketList").dataTable();
+    })
+
+    function Status(id,status)
+    {
+        $.post("/Admin/UpdateTLTicketStausByTicketId/",{Id:id,Status:status},function(){
+            TLlist();
+        });
+    }
+</script>
+
+<style>
+    h2 {
+        font-family: -webkit-pictograph;
+        font-weight: 900;
+    }
+</style>
+
+

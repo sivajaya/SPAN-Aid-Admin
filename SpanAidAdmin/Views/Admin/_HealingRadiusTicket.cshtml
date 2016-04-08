@@ -1,0 +1,140 @@
+﻿@model List<SpanAidAdmin.Models.HealingRadius>
+@{
+    ViewBag.Title = "List Healings Radius Ticket";
+}
+<div id="maindiv">
+    <h2 class="text-primary">Healings Radius Tickets</h2>
+    <h4 id="delete" class="text-danger"></h4>
+    <div>
+        <table class="table table-bordered table-striped" id="HRTicketList">
+            <thead style="background: rgba(122, 119, 119, 0.48);">
+                <tr>
+                    <th>User Name</th>
+
+                    <th>Email Address</th>
+
+                    <th>Ticket Number</th>
+
+                    <th>Module Name</th>
+
+                    <th>Ticket Description</th>
+
+                    <th>Ticket Status </th>
+
+                    <th>Priority</th>
+
+                    <th>Ticket Type</th>
+
+                    <th>Ticket Create Date</th>
+
+                    <th>Ticket Update Date</th>
+
+                    <th>Change Status</th>
+
+                    <th>Contact</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.HRUserName</td>
+
+                            <td>@item.HREmailAddress</td>
+
+                            <td>@item.HRTicketNumber</td>
+
+                            <td>@item.HRModuleName</td>
+
+                            <td>@item.HRTicketDescription</td>
+
+                            <td>@item.HRTicketStatus</td>
+
+                            <td>@item.HRPriority</td>
+
+                            <td>@item.HRTicketType</td>
+                            <td>
+                                @{
+                        string Date = item.HRTicketCreateDate.ToString();
+                        string date = Date.Substring(0, 9);
+                        @Html.Raw(date);
+                                }
+                            <td>
+                                @{
+                                       string updtaeDate = item.HRTicketUpdateDate.ToString();
+                                       string updtaedate = updtaeDate.Substring(0, 9);
+                                    @Html.Raw(updtaedate);
+                                }
+                            </td>
+                            <td style="width: 177px;">
+                                @if (item.HRTicketStatus.ToLower() == "assigned")
+                                {
+                                    <button class="btn btn-default btn-xs" onclick="Status(@item.HRTicketId,'New')"> New</button>
+                                    <button class="btn btn-primary btn-xs" onclick="Status(@item.HRTicketId,'InProgress')"> InProgress</button>
+                                    <button class="btn btn-success btn-xs" onclick="Status(@item.HRTicketId,'Resolved')">Resolved</button>
+                                }
+                                else if (item.HRTicketStatus.ToLower() == "inprogress")
+                                {
+                                    <button class="btn btn-default btn-xs" onclick="Status(@item.HRTicketId,'Assigned')"> Assigned</button>
+                                    <button class="btn btn-success btn-xs" onclick="Status(@item.HRTicketId,'Resolved')"> Resolved</button>
+                                    <button class="btn btn-danger btn-xs" onclick="Status(@item.HRTicketId,'Closed')"> Closed</button>
+                                }
+                                else if (item.HRTicketStatus.ToLower() == "resolved")
+                                {
+                                    <button class="btn btn-default btn-xs" onclick="Status(@item.HRTicketId,'Assigned')"> Assigned</button>
+                                    <button class="btn btn-primary btn-xs" onclick="Status(@item.HRTicketId,'InProgress')">InProgress</button>
+                                    <button class="btn btn-danger btn-xs" onclick="Status(@item.HRTicketId,'Closed')"> Closed</button>
+                                }
+                                else if (item.HRTicketStatus.ToLower() == "new")
+                                {
+                                    <button class="btn btn-default btn-xs" onclick="Status(@item.HRTicketId,'New')"> New</button>
+                                    <button class="btn btn-primary btn-xs" onclick="Status(@item.HRTicketId,'InProgress')"> InProgress</button>
+                                    <button class="btn btn-default btn-xs" onclick="Status(@item.HRTicketId,'Resolved')"> Resolved</button>
+                                }
+                                else
+                                {
+                                    <span>Ticket Closed</span>
+                                }
+                            </td>
+                            <td>
+                                <i class="fa fa-comment"></i> &nbsp;<i class="fa fa-envelope-o"></i>
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(function () {
+        $("#HRTicketList").dataTable();
+    })
+
+    function Status(id, status) {
+        $.post("/Admin/UpdateHRTicketStausByTicketId/", { Id: id, Status: status }, function () {
+            HRlist();
+        });
+    }
+
+    function HRlist() {
+        debugger;
+        $("#TicketList").load("/Admin/_HealingRadiusTicket");
+    }
+
+</script>
+
+<style>
+    h2 {
+        font-family: -webkit-pictograph;
+        font-weight: 900;
+    }
+</style>
+
